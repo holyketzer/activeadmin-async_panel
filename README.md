@@ -37,7 +37,7 @@ Include this line in your JavaScript code (active_admin.js.coffee)
 
 To use this stuff do next steps:
 
-Step 1. Define async panel
+### Step 1. Define async panel
 
 ```ruby  
 panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_path, 'data-period' => 1.minute
@@ -45,7 +45,9 @@ panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_pa
 
 If you setup `data-period`, panel will be periodically updated. If not, it will be loaded once right after page load
 
-Step 2. Define `member_action` or `collection_action` to handle request specified by path helper
+### Step 2. Define action 
+
+Define `member_action` or `collection_action` to handle request specified by path helper
 
 ```ruby  
 collection_action :some_action do
@@ -54,7 +56,9 @@ collection_action :some_action do
 end
 ```
 
-Step 3. Define you view template to render action above in file `views/admin/resources/some_action.html.arb`can also be (slim, erb), for e.g. arb:
+### Step 3. Define view 
+
+Define you view template to render action above in file `views/admin/resources/some_action.html.arb`can also be (slim, erb), for e.g. `arb` template:
 
 ```ruby
 table_for resources do
@@ -63,7 +67,7 @@ table_for resources do
 end
 ```
 
-Note that in step 2 you can pass template variables with `@`, but inside template you should use them without `@`.
+Note that in step 2 you can pass template variables with `@`, but inside `arb` template you should use them without `@`, and inside `erb`, `slim` with.
 
 ## Development
 
