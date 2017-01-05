@@ -5,19 +5,11 @@
 
 # Activeadmin::AsyncPanel
 
-This gem extends ActiveAdmin so that your can use filters with AJAX-powered input.
-
-Form input
-
-<img src="https://s31.postimg.org/gvb9y7u9n/ajax_input.gif" width="360" alt="ActiveAdmin AJAX Form input"/>
-
-Filter
-
-<img src="https://s31.postimg.org/qmkboivpn/async_panel.gif" width="360" alt="ActiveAdmin AJAX Filter input"/>
+This gem allows you to create ActiveAdmin panels with content loaded dynamically via AJAX requests.
 
 ## Prerequisites
 
-This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin) with [Ransack](https://github.com/activerecord-hackery/ransack). And for AJAX input it uses [selectize-rails](https://github.com/manuelvanrijn/selectize-rails)
+This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin)
 
 ## Installation
 
@@ -40,63 +32,38 @@ Or install it yourself as:
 Include this line in your JavaScript code (active_admin.js.coffee)
 
 ```coffeescript
-#= require selectize
 #= require activeadmin-async_panel
 ```
 
-Include this line in your CSS code (active_admin.scss)
+To use this stuff do next steps:
 
-```scss
-@import "selectize";
-@import "selectize.default";
-@import "activeadmin-async_panel";
+1. Define async panel
+
+```ruby  
+panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_path, 'data-period' => 1.minute
 ```
 
-Include `ActiveAdmin::AsyncPanel` module to the ActiveAdmin relation resource for which you want to support filtering and add `ajax_select` filter to main resource. For example:
+If you setup `data-period`, panel will be periodically updated. If not, it will be loaded once right after page load
+
+2. Define `member_action` or `collection_action` to handle request specified by path helper
+
+```ruby  
+collection_action :some_action do
+  @resources = Resource.some_scope
+  render layout: false # mandatory line, layout should be disaled to render template only
+end
+```
+
+3. Define you view template to render action above in file `views/admin/resources/some_action.html.arb`can also be (slim, erb), for e.g. arb:
 
 ```ruby
-# Relation-resource
-ActiveAdmin.register User do
-  include ActiveAdmin::AsyncPanel
-  # ...
-end
-
-# Main resource
-# As a filter
-ActiveAdmin.register Invoice do
-  filter :user, as: :ajax_select, data: { 
-    url: :filter_admin_users_path, 
-    search_fields: [:email, :customer_uid], 
-    limit: 7,
-  }
-  # ...
-end
-
-# As a form input
-ActiveAdmin.register Invoice do
-  form do |f|
-    f.input :language # used by ajax_search_fields
-    f.input :user, as: :ajax_select, data: { 
-      url: filter_admin_users_path,
-      search_fields: [:name], 
-      static_ransack: { active_eq: true }, 
-      ajax_search_fields: [:language_id],
-    }
-    # ...
-  end
+table_for resources do
+  column :value1
+  column :value2
 end
 ```
 
-You can use next parameters in `data` hash:
-
-* `search_fields` - fields by which AJAX search will be performed, **required**
-* `limit` - count of the items which will be requested by AJAX, by default `5`
-* `value_field` - value field for html select element, by default `id`
-* `ordering` - sort string like `email ASC, customer_uid DESC`, by default it uses first value of `search_fields` with `ASC` direction
-* `ransack` - ransack query which will be applied, by default it's builded from `search_fields` with `or` and `contains` clauses, e.g.: `email_or_customer_uid_cont`
-* `url` - url for AJAX query by default is builded from field name. For inputs you can use url helpers, but on filters level url helpers isn't available, so if you need them you can pass symbols and it will be evaluated as url path (e.g. `:filter_admin_users_path`). `String` with relative path (like `/admin/users/filter`) can be used for both inputs and filters.
-* `ajax_search_fields` - array of field names. `ajax_select` input depends on `ajax_search_fields` values: e.g. you can scope user by languages.
-* `static_ransack` - hash of ransack predicates which will be applied statically and independently from current input field value
+Note that in step 2 you can pass template variables with `@`, but inside template you should use them without `@`.
 
 ## Development
 
