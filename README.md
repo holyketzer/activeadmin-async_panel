@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/holyketzer/activeadmin-async_panel/badges/gpa.svg)](https://codeclimate.com/github/holyketzer/activeadmin-async_panel)
 [![Test Coverage](https://codeclimate.com/github/holyketzer/activeadmin-async_panel/badges/coverage.svg)](https://codeclimate.com/github/holyketzer/activeadmin-async_panel/coverage)
 
-# Activeadmin::AsyncPanel
+# ActiveAdmin::AsyncPanel
 
 This gem allows you to create ActiveAdmin panels with content loaded dynamically via AJAX requests.
 
@@ -37,7 +37,7 @@ Include this line in your JavaScript code (active_admin.js.coffee)
 
 To use this stuff do next steps:
 
-1. Define async panel
+Step 1. Define async panel
 
 ```ruby  
 panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_path, 'data-period' => 1.minute
@@ -45,7 +45,7 @@ panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_pa
 
 If you setup `data-period`, panel will be periodically updated. If not, it will be loaded once right after page load
 
-2. Define `member_action` or `collection_action` to handle request specified by path helper
+Step 2. Define `member_action` or `collection_action` to handle request specified by path helper
 
 ```ruby  
 collection_action :some_action do
@@ -54,7 +54,7 @@ collection_action :some_action do
 end
 ```
 
-3. Define you view template to render action above in file `views/admin/resources/some_action.html.arb`can also be (slim, erb), for e.g. arb:
+Step 3. Define you view template to render action above in file `views/admin/resources/some_action.html.arb`can also be (slim, erb), for e.g. arb:
 
 ```ruby
 table_for resources do
