@@ -5,6 +5,8 @@
 
 # ActiveAdmin::AsyncPanel
 
+<img src="https://s23.postimg.org/vq3bbntxn/async_panel.gif" width="360" alt="ActiveAdmin Async Panel control"/>
+
 This gem allows you to create ActiveAdmin panels with content loaded dynamically via AJAX requests.
 
 ## Prerequisites
@@ -33,6 +35,12 @@ Include this line in your JavaScript code (active_admin.js.coffee)
 
 ```coffeescript
 #= require activeadmin-async_panel
+```
+
+Include this line in your CSS code (active_admin.scss)
+
+```scss
+@import "activeadmin-async_panel";
 ```
 
 To use this stuff do next steps:
