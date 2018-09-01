@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activeadmin-async_panel (0.2.1)
+    activeadmin-async_panel (0.2.2)
       activeadmin (>= 1.0)
       coffee-rails (>= 4.1)
 
