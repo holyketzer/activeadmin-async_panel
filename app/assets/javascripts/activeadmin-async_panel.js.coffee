@@ -19,6 +19,7 @@
 $ ->
   $('.async-panel').each (index, item) ->
     item = $(item)
+    requiresClick = !!item.data('clickable')
     worker = ->
       item.addClass('processing')
       $('h3', item).hide().show(0)
@@ -37,4 +38,12 @@ $ ->
           if period
             setTimeout worker, period * 1000
 
-    worker()
+    registerHandler = ->
+      item.addClass('clickable')
+      $('h3', item).on 'click', ->
+        worker()
+
+    if requiresClick
+      registerHandler()
+    else
+      worker()

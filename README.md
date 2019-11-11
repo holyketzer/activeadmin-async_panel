@@ -53,6 +53,12 @@ panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_pa
 
 If you setup `data-period`, panel will be periodically updated. If not, it will be loaded once right after page load
 
+If you set `data-clickable` to a truthy value, the panel will not be loaded upon initial page load. Instead, the panel will load upon clicking the panel header. Upon page load, the panel header will have a label of 'Click to Load'. Example:
+
+```ruby
+panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_path, 'data-clickable' => 1
+```
+
 ### Step 2. Define action 
 
 Define `member_action` or `collection_action` to handle request specified by path helper
