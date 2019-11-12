@@ -4,3 +4,23 @@
     background-size: 27px;
   }
 }
+.async-panel.panel.clickable {
+  h3 {
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::after {
+      position: absolute;
+      content: 'Click to Load';
+      top: 0;
+      right: 0;
+      display: block;
+      padding: 0.25rem 0.5rem;
+      background-image: linear-gradient(180deg, #fff, #E7E7E7);
+      cursor: pointer;
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+  }
+}
