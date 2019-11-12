@@ -41,6 +41,7 @@ $ ->
     registerHandler = ->
       item.addClass('clickable')
       $('h3', item).on 'click', ->
+        item.removeClass('clickable')
         worker()
 
     if requiresClick
