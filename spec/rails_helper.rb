@@ -10,6 +10,7 @@ require 'phantomjs/poltergeist'
 require 'database_cleaner'
 
 Capybara.javascript_driver = :poltergeist
+Capybara.server = :webrick
 
 def reload_menus!
   ActiveAdmin.application.namespaces.each(&:reset_menu!)
