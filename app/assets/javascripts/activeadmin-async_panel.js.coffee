@@ -16,7 +16,7 @@
 #     column :calue2
 #   end
 
-$ ->
+$(document).on "page:load turbolinks:load turbo:load", ->
   $('.async-panel').each (index, item) ->
     item = $(item)
     requiresClick = !!item.data('clickable')
