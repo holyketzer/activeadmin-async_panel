@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'activeadmin', '>= 1.0'
-  gem.add_dependency 'rails', '~> 6.0'
+  gem.add_dependency 'rails', '>= 7.0'
   gem.add_dependency 'coffee-rails', '>= 4.1'
   gem.add_development_dependency 'sassc-rails'
   gem.add_development_dependency 'bundler', '~> 2.1'
@@ -31,9 +31,9 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'sqlite3', '~> 1.4'
   gem.add_development_dependency 'temping', '~> 3.3', '>= 3.3.0'
   gem.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
-  gem.add_development_dependency 'capybara', '~> 3'
+  gem.add_development_dependency 'capybara', '~> 3.39'
   gem.add_development_dependency 'phantomjs', '~> 2.1.1'
-  gem.add_development_dependency 'database_cleaner', '~> 1.5.0'
+  gem.add_development_dependency 'database_cleaner', '~> 1.5'
   gem.add_development_dependency 'launchy', '~> 2.4.3'
   gem.add_development_dependency 'jquery-ui-rails', '~> 5.0.5'
   gem.add_development_dependency 'poltergeist'

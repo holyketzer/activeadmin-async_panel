@@ -4,4 +4,5 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rails', '>= 4.2.11'
+gem 'sprockets-rails'
 gem 'listen'

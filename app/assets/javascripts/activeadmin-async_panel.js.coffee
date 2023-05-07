@@ -16,7 +16,7 @@
 #     column :calue2
 #   end
 
-$(document).on "page:load turbolinks:load turbo:load", ->
+setAsyncPanelHook = ->
   $('.async-panel').each (index, item) ->
     item = $(item)
     requiresClick = !!item.data('clickable')
@@ -49,3 +49,9 @@ $(document).on "page:load turbolinks:load turbo:load", ->
       registerHandler()
     else
       worker()
+
+$ ->
+  setAsyncPanelHook()
+
+$(document).on "page:load turbolinks:load turbo:load", ->
+  setAsyncPanelHook()
