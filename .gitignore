@@ -11,4 +11,5 @@
 /spec/dummy/log/*.log
 /tmp/
 *.sqlite3
+*.gem
 .DS_Store

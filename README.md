@@ -11,6 +11,7 @@ This gem allows you to create ActiveAdmin panels with content loaded dynamically
 ## Prerequisites
 
 Minimum Ruby version `2.7`
+Rails 7
 
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin)
 
@@ -32,10 +33,10 @@ Or install it yourself as:
 
 ## Usage
 
-Include this line in your JavaScript code (active_admin.js.coffee)
+Include this line in your JavaScript code (active_admin.js)
 
-```coffeescript
-#= require activeadmin-async_panel
+```js
+//= require activeadmin-async_panel
 ```
 
 Include this line in your CSS code (active_admin.scss)
