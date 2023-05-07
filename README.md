@@ -1,7 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/activeadmin-async_panel.svg)](https://badge.fury.io/rb/activeadmin-async_panel)
-[![Build Status](https://travis-ci.org/holyketzer/activeadmin-async_panel.svg?branch=master)](https://travis-ci.org/holyketzer/activeadmin-async_panel)
+[![Build Status](https://github.com/holyketzer/activeadmin-async_panel/actions/workflows/main.yaml/badge.svg)](https://github.com/holyketzer/activeadmin-async_panel/actions)
 [![Code Climate](https://codeclimate.com/github/holyketzer/activeadmin-async_panel/badges/gpa.svg)](https://codeclimate.com/github/holyketzer/activeadmin-async_panel)
-[![Test Coverage](https://codeclimate.com/github/holyketzer/activeadmin-async_panel/badges/coverage.svg)](https://codeclimate.com/github/holyketzer/activeadmin-async_panel/coverage)
 
 # ActiveAdmin::AsyncPanel
 
@@ -10,6 +9,8 @@
 This gem allows you to create ActiveAdmin panels with content loaded dynamically via AJAX requests.
 
 ## Prerequisites
+
+Minimum Ruby version `2.7`
 
 This extension assumes that you're using [Active Admin](https://github.com/activeadmin/activeadmin)
 
@@ -59,7 +60,7 @@ If you set `data-clickable` to a truthy value, the panel will not be loaded upon
 panel 'Name', class: 'async-panel', 'data-url' => some_action_admin_resources_path, 'data-clickable' => 1
 ```
 
-### Step 2. Define action 
+### Step 2. Define action
 
 Define `member_action` or `collection_action` to handle request specified by path helper
 
@@ -70,7 +71,7 @@ collection_action :some_action do
 end
 ```
 
-### Step 3. Define view 
+### Step 3. Define view
 
 Define you view template to render action above in file `views/admin/resources/some_action.html.arb`can also be (slim, erb), for e.g. `arb` template:
 

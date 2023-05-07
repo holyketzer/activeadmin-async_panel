@@ -1,3 +1,5 @@
+require "rails_helper"
+
 RSpec.describe 'Async panel', type: :feature, js: true do
   let!(:subcategory) { create(:subcategory) }
 
