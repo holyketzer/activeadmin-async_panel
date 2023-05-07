@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.name          = 'activeadmin-async_panel'
   gem.version       = ActiveAdmin::AsyncPanel::VERSION
   gem.authors       = ['Alex Emelyanov']
-  gem.email         = ['aemelyanov@spbtv.com']
+  gem.email         = ['holyketzer@gmail.com']
 
   gem.summary       = 'AJAX-powered async panels for ActiveAdmin'
   gem.description   = 'Allows to define special attributes for ActiveAdmin panel to make it AJAX loadable and auto-updatable'
