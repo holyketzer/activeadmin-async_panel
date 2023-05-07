@@ -21,7 +21,7 @@ CodeClimate::TestReporter.start
 require 'active_support/all'
 require 'active_model'
 require 'active_record'
-require 'active_admin'
+# require 'active_admin'
 
 require 'temping'
 
